@@ -176,9 +176,12 @@ export const initWaitingRoomListener = ({ stores, history }: InitWaitingRoomList
             const host = room.players.find(p => p.id === room.host);
             return alert(`你已被 ${host?.username} 踢出房間`);
         }
-        
+
         const playerIndex = room.players.findIndex(player => player.id === playerId);
-        room.players.splice(playerIndex, 1);
+        if (playerIndex > -1) {
+            room.players.splice(playerIndex, 1);
+            setRoom(room);
+        }
         setRoom(room);
     });
 }
@@ -239,6 +242,25 @@ export const initGamingRoomListener = async ({ stores, history }: InitWaitingRoo
         room.status = 'end';
         setRoom(room);
         stores.gameStore.setWinner(winner);
+    });
+
+    socket?.on('/game/kick', (playerId: string) => {
+        const { user } = stores.appStore;
+        const { room, setRoom } = stores.gameStore;
+
+        if (user.id === playerId) {
+            // leave chat room
+            socket.emit('/game/beKicked');
+            history.replace('/home');
+            const host = room.players.find(p => p.id === room.host);
+            return alert(`你已被 ${host?.username} 踢出房間`);
+        }
+
+        const playerIndex = room.players.findIndex(player => player.id === playerId);
+        if (playerIndex > -1) {
+            room.players.splice(playerIndex, 1);
+            setRoom(room);
+        }
     });
 }
 

@@ -25,6 +25,10 @@ const GameBoardComponent = observer(() => {
     const isHost = user.id === host;
 
     const onSelectPlayer = (player: Player) => {
+        if (!isHost) {
+            return;
+        }
+        
         if (player.status === 'dead' || (!setting.isRandom && player.identify === 'host')) {
             return;
         }
