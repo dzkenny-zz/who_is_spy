@@ -23,5 +23,10 @@ export const Avatars = [
         id: 'mario',
         avatar: 'mario.jpg',
         card: 'mario.jpg'
+    },
+    {
+        id: 'zelda',
+        avatar: 'zelda.jpg',
+        card: 'zelda.jpg'
     }
 ]

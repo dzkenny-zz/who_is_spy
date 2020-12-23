@@ -49,7 +49,7 @@ const PeopleListComponent = observer(() => {
     }
 
     return (
-        <div className="room-content-container">
+        <div className="room-content-container" style={{ borderRight: '1px solid grey'}}>
             {refresh}
             <Typography className="title" gutterBottom variant="body1" component="h2">玩家人數: {players.length}</Typography>
             <List>
