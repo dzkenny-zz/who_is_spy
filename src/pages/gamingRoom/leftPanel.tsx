@@ -17,7 +17,7 @@ const LeftPanel = ({ type }: LeftPanelType) => {
                     資訊
                 </div>
                 <div onClick={e => setTab(1)} className={`info-tab ${tab === 1 ? 'selected-tab' : ''}`}>
-                    私訊
+                    聊天
                 </div>
             </div>
             {

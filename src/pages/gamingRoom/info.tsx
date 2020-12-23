@@ -4,12 +4,15 @@ import { Button, Typography, Dialog, DialogTitle, DialogActions } from '@materia
 import './styles.css';
 import { useStores } from '../../stores';
 import * as _ from 'lodash';
-import { endGame } from '../../actions/game';
+import { endGame, quitRoom } from '../../actions/game';
+import { useHistory } from 'react-router';
 
 const InfoComponent = observer(() => {
     const stores = useStores();
+    const history = useHistory();
     const [showSpyWin, setShowSpyWin] = useState(false);
     const [showBlankWin, setShowBlankWin] = useState(false);
+    const [showLeave, setShowLeave] = useState(false);
 
     const { user } = stores.appStore;
     const { room, refresh } = stores.gameStore;
@@ -34,6 +37,11 @@ const InfoComponent = observer(() => {
         endGame({ stores, winner: 'blank' });
     }
 
+    const onLeave = () => {
+        setShowLeave(false);
+        quitRoom({ stores, history });
+    }
+
     return (
         <div className="gaming-info-content">
             {refresh}
@@ -51,14 +59,18 @@ const InfoComponent = observer(() => {
                     淨餘臥底數量: {spyNum}
                 </Typography>
             </div>
-            {
-                isHost ? (
-                    <div className="action-section">
-                        <Button onClick={() => setShowSpyWin(true)} color="primary">臥底勝利</Button>
-                        <Button onClick={() => setShowBlankWin(true)} color="primary">白板勝利</Button>
-                    </div>
-                ) : null
-            }
+            <div className="action-section">
+                {isHost ? <Button onClick={() => setShowSpyWin(true)} color="primary">臥底勝利</Button> : null}
+                {isHost ? <Button onClick={() => setShowBlankWin(true)} color="primary">白板勝利</Button> : null}
+                <Button onClick={() => setShowLeave(true)} color="primary">離開房間</Button>
+            </div>
+            <Dialog open={showLeave}>
+                <DialogTitle>是否確認離開</DialogTitle>
+                <DialogActions>
+                    <Button onClick={() => setShowLeave(false)} color="primary">取消</Button>
+                    <Button onClick={onLeave} color="primary">確定</Button>
+                </DialogActions>
+            </Dialog>
             <Dialog open={showSpyWin}>
                 <DialogTitle>是否確認臥底勝利</DialogTitle>
                 <DialogActions>

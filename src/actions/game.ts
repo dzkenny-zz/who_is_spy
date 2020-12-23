@@ -282,6 +282,19 @@ export const initGamingRoomListener = async ({ stores, history }: InitWaitingRoo
         history.push({ username, message });
         setHistory(history);
     });
+
+    socket?.on('/game/quit', (resp: any) => {
+        console.log(resp);
+        const { room, setRoom, setWinner } = stores.gameStore;
+        const { playerId, host, winner } = resp;
+        room.players = room.players.filter(player => player.id !== playerId);
+        room.host = host;
+        if (winner) {
+            room.status = 'end';
+            setWinner(winner);
+        }
+        setRoom(room);
+    });
 }
 
 export const removeGamingRoomListener = ({ stores }: RemoveWaitingRoomListener) => {
@@ -289,6 +302,7 @@ export const removeGamingRoomListener = ({ stores }: RemoveWaitingRoomListener) 
     socket?.off('/game/report');
     socket?.off('/game/end');
     socket?.off('/message');
+    socket?.off('/game/quit');
 }
 
 export const reportPlayer = ({ stores, playerId }: ReportPlayer) => {

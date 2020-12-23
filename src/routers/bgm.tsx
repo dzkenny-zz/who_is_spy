@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import React, { useEffect, useRef } from 'react';
 import { useStores } from '../stores';
-import SoundIcon from '@material-ui/icons/VolumeMute';
+import SoundIcon from '@material-ui/icons/VolumeUp';
 import MuteIcon from '@material-ui/icons/VolumeOff';
 import { toggleBgm, toggleAudio } from '../actions/audio';
 
