@@ -116,44 +116,23 @@ export const init = async ({ stores, history }: Init) => {
     //     host: "160862470213998",
     //     players: [
     //         new Player({
-    //             id: "160862470213998",
+    //             id: "1608613998",
     //             username: "kenny",
-    //             avatar: "pikachu",
+    //             avatar: "ironman",
     //             status: "alive",
     //             identify: "host"
     //         }),
     //         new Player({
-    //             id: "160862474464887",
+    //             id: "18624744887",
     //             username: "json",
-    //             avatar: "prince",
+    //             avatar: "naruto",
     //             status: "alive",
     //             identify: "normal"
     //         }),
     //         new Player({
-    //             id: "1608624464823",
+    //             id: "1608644623",
     //             username: "jsons",
-    //             avatar: "elsa",
-    //             status: "alive",
-    //             identify: "normal"
-    //         }),
-    //         new Player({
-    //             id: "1608620213998",
-    //             username: "kenny",
-    //             avatar: "pikachu",
-    //             status: "alive",
-    //             identify: "host"
-    //         }),
-    //         new Player({
-    //             id: "1862474464887",
-    //             username: "json",
-    //             avatar: "prince",
-    //             status: "alive",
-    //             identify: "normal"
-    //         }),
-    //         new Player({
-    //             id: "1608624744623",
-    //             username: "jsons",
-    //             avatar: "zelda",
+    //             avatar: "superman",
     //             status: "alive",
     //             identify: "normal"
     //         })
