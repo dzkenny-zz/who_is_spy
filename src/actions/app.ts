@@ -7,6 +7,7 @@ import { Setting } from '../models/setting';
 import websocket from 'socket.io-client';
 import { ActionState, Socket } from '../models/common';
 import { request } from '../utils/request';
+import { playAudio } from './audio';
 
 type Init = {
     stores: Stores,
@@ -76,6 +77,7 @@ export const init = async ({ stores, history }: Init) => {
         if (player) {
             player.avatar = avatar;
         }
+        playAudio({ stores, soundId: avatar });
         setRoom(room);
     })
 

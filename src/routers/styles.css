@@ -1,0 +1,11 @@
+.router-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.sound-button {
+    position: absolute !important;
+    top: 12px;
+    right: 12px;
+}
