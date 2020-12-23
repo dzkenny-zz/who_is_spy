@@ -16,6 +16,13 @@ const ChatRoom = observer(() => {
         sendMessage({ stores, message });
         setMessage('');
     }
+
+    const onKeyDown = (e: any) => {
+        if (e.key === 'Enter') {
+            onSendMessage();
+          }
+    }
+
     return (
         <div className="chat-box">
             <div className="chat-history">
@@ -32,6 +39,7 @@ const ChatRoom = observer(() => {
                     className="chat-input"
                     value={message}
                     onChange={onMessageChange}
+                    onKeyDown={onKeyDown}
                 />
                 <button
                     className="send-button"
