@@ -1,0 +1,141 @@
+.page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:lightskyblue;
+}
+
+.gaming-card {
+    width: 860px;
+    max-width: 80%;
+}
+
+.logo {
+    width: 48px;
+    text-align: right;
+}
+
+.toolbar {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    flex: 1;
+}
+
+.waiting-content {
+    display: flex;
+    margin-top: 24px;
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+.room-content-container {
+    flex: 1;
+    border-right: 1px solid grey;
+    height: 480px;
+    overflow-y: auto;
+}
+
+.padding12 {
+    padding: 12px;
+}
+
+.label {
+    background: white;
+}
+
+.setting-field {
+    padding-bottom: 24px !important;
+}
+
+.setting-field-content {
+    flex: 1;
+}
+
+.setting-actions {
+    display: inline-flex;
+    align-items: flex-end;
+}
+
+.gaming-card-content {
+    flex: 1;
+    border-right: 1px solid grey;
+    padding: 12px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.person-card {
+    cursor: pointer;
+    margin: 12px;
+}
+
+.person-card-content {
+    width: 160px;
+    height: 214px;
+    padding: 0px !important;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-avatar {
+    flex: 1;
+    width: 160px;
+    height: 160px;
+    background-color: grey;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.admin-icon {
+    color: yellow;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.status-layer {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background: rgba(255,255,255,0.7);
+}
+
+.card-image {
+    width: 160px;
+    height: 160px;
+}
+
+.gaming-info-content {
+    width: 240px;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.info-section {
+    padding: 12px;
+    flex: 1;
+}
+
+.action-section {
+    flex-basis: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

@@ -1,0 +1,51 @@
+.name {
+    font-size: 24px;
+    margin: 0px 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.name-edit-icon {
+    position: absolute;
+    font-size: 16px !important;
+    top: -4px;
+    right: -16px;
+}
+
+.toolbar {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-left: 12px;
+    flex: 1;
+    font-size: 24px;
+}
+
+.avatar-container {
+    margin: 12px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.not-selected-avatar {
+    border: 2px solid grey;
+}
+
+.selected-avatar {
+    border: 2px solid red;
+}
+
+.avatars-selection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 560px
+}
