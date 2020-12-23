@@ -37,7 +37,7 @@
 
 .room-content-container {
     flex: 1;
-    height: 360px;
+    height: 60vh;
     overflow-y: auto;
 }
 

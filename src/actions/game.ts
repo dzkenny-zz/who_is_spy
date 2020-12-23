@@ -78,6 +78,11 @@ type EndGame = {
     winner: string
 }
 
+type SendMessage = {
+    stores: Stores,
+    message: string
+}
+
 export const createGameRoom = ({ stores, history }: CreateGameRoom) => {
     stores.appStore.setLoading(true);
     const socket = stores.appStore.socket;
@@ -184,6 +189,13 @@ export const initWaitingRoomListener = ({ stores, history }: InitWaitingRoomList
         }
         setRoom(room);
     });
+
+    socket?.on('/message', (resp: any) => {
+        const { username, message } = resp;
+        const { history, setHistory } = stores.gameStore;
+        history.push({ username, message });
+        setHistory(history);
+    });
 }
 
 export const removeWaitingRoomListener = ({ stores }: RemoveWaitingRoomListener) => {
@@ -195,6 +207,7 @@ export const removeWaitingRoomListener = ({ stores }: RemoveWaitingRoomListener)
     socket?.off('/game/host');
     socket?.off('/game/start');
     socket?.off('/game/kick');
+    socket?.off('/message');
 }
 
 export const startGame = ({ stores, correct, wrong }: StartGame) => {
@@ -262,12 +275,20 @@ export const initGamingRoomListener = async ({ stores, history }: InitWaitingRoo
             setRoom(room);
         }
     });
+
+    socket?.on('/message', (resp: any) => {
+        const { username, message } = resp;
+        const { history, setHistory } = stores.gameStore;
+        history.push({ username, message });
+        setHistory(history);
+    });
 }
 
 export const removeGamingRoomListener = ({ stores }: RemoveWaitingRoomListener) => {
     const { socket } = stores.appStore;
     socket?.off('/game/report');
     socket?.off('/game/end');
+    socket?.off('/message');
 }
 
 export const reportPlayer = ({ stores, playerId }: ReportPlayer) => {
@@ -288,4 +309,12 @@ export const kickPlayer = ({ stores, playerId }: KickPlayer) => {
 export const endGame = ({ stores, winner }: EndGame) => {
     const { socket } = stores.appStore;
     socket?.emit('/game/end', winner);
+}
+
+export const sendMessage = ({ stores, message }: SendMessage) => {
+    const { socket, user } = stores.appStore;
+    socket?.emit('/message', {
+        username: user.username,
+        message
+    });
 }

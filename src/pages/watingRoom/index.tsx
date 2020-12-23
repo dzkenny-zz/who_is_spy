@@ -8,6 +8,7 @@ import { removeWaitingRoomListener, initWaitingRoomListener } from '../../action
 import PeopleListComponent from './peopleList';
 import SettingComponent from './setting';
 import ToolbarComponent from '../../components/toolbar';
+import LeftPanel from '../gamingRoom/leftPanel';
 
 const WaitingRoomPage = observer(() => {
     const stores = useStores();
@@ -32,7 +33,7 @@ const WaitingRoomPage = observer(() => {
                     <ToolbarComponent title={`遊玩房間 #${id}`} />
                     <div className="waiting-content">
                         <PeopleListComponent />
-                        <SettingComponent />
+                        <LeftPanel type={'waiting'}/>
                     </div>
                 </CardContent>
             </Card>

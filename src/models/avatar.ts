@@ -106,5 +106,11 @@ export const Avatars = [
         avatar: 'superman.jpg',
         card: 'superman.jpg',
         sound: 'superman.mp3'
+    },
+    {
+        id: 'root',
+        avatar: 'root.jpeg',
+        card: 'root.png',
+        sound: 'root.mp3'
     }
 ]

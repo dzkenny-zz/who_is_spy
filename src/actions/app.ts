@@ -57,6 +57,7 @@ export const init = async ({ stores, history }: Init) => {
     scoket.on('/user/avatar', (avatar: string) => {
         const { user } = stores.appStore;
         user.avatar = avatar;
+        playAudio({ stores, soundId: avatar });
         stores.appStore.setUser(user);
     });
 
@@ -77,7 +78,6 @@ export const init = async ({ stores, history }: Init) => {
         if (player) {
             player.avatar = avatar;
         }
-        playAudio({ stores, soundId: avatar });
         setRoom(room);
     })
 
@@ -147,7 +147,7 @@ export const init = async ({ stores, history }: Init) => {
     //         wrong: "大樹"
     //     })
     // }));
-    // return history.replace('/gaming-room');
+    // return history.replace('/waiting-room');
 }
 
 export const saveUsername = async ({ stores, history, username }: saveUsername) => {

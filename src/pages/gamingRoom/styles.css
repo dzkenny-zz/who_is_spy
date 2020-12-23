@@ -125,8 +125,10 @@
 
 .gaming-info-content {
     width: 240px;
+    height: 60vh;
     display: inline-flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 
 .info-section {
@@ -135,8 +137,53 @@
 }
 
 .action-section {
-    flex-basis: 64px;
+    flex-basis: 48px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+.info-tabs {
+    display: flex;
+    flex-basis: 36px;
+}
+
+.info-tab {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chat-box {
+    flex: 1;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.chat-input {
+    flex: 1;
+}
+
+.chat-field {
+    display: flex;
+}
+
+.selected-tab {
+    border-bottom: 2px solid blueviolet;
+}
+
+.message-user {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.chat-history {
+    height: calc(60vh - 80px);
+    overflow-y: auto;
+    padding: 12px;
+}
+.message-content {
+    font-size: 14pt;
 }

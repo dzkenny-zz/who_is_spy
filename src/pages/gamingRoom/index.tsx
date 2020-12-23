@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 import InfoComponent from './info';
 import GameBoardComponent from './gameBoard';
 import ToolbarComponent from '../../components/toolbar';
+import LeftPanel from './leftPanel';
 
 const GamingRoomPage = observer(() => {
     const stores = useStores();
@@ -37,7 +38,7 @@ const GamingRoomPage = observer(() => {
                     <ToolbarComponent title={`遊玩房間 #${id}`} />
                     <div className="waiting-content">
                         <GameBoardComponent />
-                        <InfoComponent />
+                        <LeftPanel type='gaming'/>
                     </div>
                 </CardContent>
             </Card>
