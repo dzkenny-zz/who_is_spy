@@ -39,7 +39,7 @@ const NameComponent = observer(() => {
                 onClick={onOpenNameDialog}
             >
                 {user.username}
-                <EditIcon className="name-edit-icon" />
+                { isMobile ? null : <EditIcon className="name-edit-icon" /> }
             </div>
             <Dialog key="name-dialog" open={showNameDialog}>
                 <DialogTitle>更改玩家名稱</DialogTitle>
