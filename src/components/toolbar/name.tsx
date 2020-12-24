@@ -31,6 +31,12 @@ const NameComponent = observer(() => {
         setShowNameDialog(false);
         updateUsername({ stores, username });
     }
+    
+    const onKeyDown = (e: any) => {
+        if (e.key === 'Enter') {
+            onSaveUsername();
+          }
+    }
 
     return (
         <>
@@ -48,6 +54,7 @@ const NameComponent = observer(() => {
                         label={'玩家名稱'}
                         value={username}
                         onChange={onUsernameChange}
+                        onKeyDown={onKeyDown}
                     />
                 </DialogContent>
                 <DialogActions>

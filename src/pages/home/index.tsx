@@ -39,6 +39,12 @@ const HomePage = observer(() => {
         setJoinRoomId(event.target.value)
     }
 
+    const onKeyDown = (e: any) => {
+        if (e.key === 'Enter') {
+            onJoinRoom();
+          }
+    }
+
     return (
         <div className="page">
             <Card className={isMobile ? "mobile-card" : "card"}>
@@ -75,6 +81,7 @@ const HomePage = observer(() => {
                         title="房間編號"
                         value={joinRoomId}
                         onChange={onJoinRoomIdChange}
+                        onKeyDown={onKeyDown}
                     />
                 </DialogContent>
                 <DialogActions>

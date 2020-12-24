@@ -25,6 +25,12 @@ const LoginPage = () => {
 
     const disabled = stores.appStore.loginState === ActionState.IN_PROGRESS;
 
+    const onKeyDown = (e: any) => {
+        if (e.key === 'Enter') {
+            onSave();
+          }
+    }
+
     if (isMobile) {
         return (
             <div className="page">
@@ -40,6 +46,7 @@ const LoginPage = () => {
                             value={username}
                             disabled={disabled}
                             onChange={(e) => handleUsernameChange(e)}
+                            onKeyDown={onKeyDown}
                         />
                     </CardContent>
                     <CardActions className="footer">
