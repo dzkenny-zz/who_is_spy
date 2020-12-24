@@ -114,6 +114,30 @@ export const Avatars = [
         sound: 'kamado.mp3'
     },
     {
+        id: 'sailormoon',
+        avatar: 'sailormoon.png',
+        card: 'sailormoon.jpg',
+        sound: 'sailormoon.mp3'
+    },
+    {
+        id: 'minions',
+        avatar: 'minions.jpg',
+        card: 'minions.jpg',
+        sound: 'minions.mp3'
+    },
+    {
+        id: 'mackaroo',
+        avatar: 'mackaroo.jpg',
+        card: 'mackaroo.jpg',
+        sound: 'mackaroo.mp3'
+    },
+    {
+        id: 'tom',
+        avatar: 'tom.jpg',
+        card: 'tom.jpeg',
+        sound: 'tom.mp3'
+    },
+    {
         id: 'root',
         avatar: 'root.jpeg',
         card: 'root.png',
