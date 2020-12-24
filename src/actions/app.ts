@@ -147,7 +147,7 @@ export const init = async ({ stores, history }: Init) => {
     //         wrong: "大樹"
     //     })
     // }));
-    // return history.replace('/waiting-room');
+    // return history.replace('/gaming-room');
 }
 
 export const saveUsername = async ({ stores, history, username }: saveUsername) => {

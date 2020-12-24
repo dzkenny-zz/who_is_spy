@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import SettingComponent from '../watingRoom/setting';
-import ChatRoom from './chatRoom';
-import InfoComponent from './info';
+import SettingComponent from '../../pages/watingRoom/setting';
+import ChatRoom from '../chatRoom';
+import InfoComponent from '../../pages/gamingRoom/info';
 
 type LeftPanelType = {
     type: 'waiting' | 'gaming'

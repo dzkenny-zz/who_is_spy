@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background:lightskyblue;
+    overflow-y: hidden;
 }
 
 .gaming-card {
@@ -70,7 +71,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-height: 60vh;
     overflow-y: auto;
 }
 
@@ -81,7 +81,7 @@
 
 .person-card-content {
     width: 160px;
-    height: 214px;
+    height: 200px;
     padding: 0px !important;
     display: inline-flex;
     flex-direction: column;
@@ -180,10 +180,41 @@
 }
 
 .chat-history {
-    height: calc(60vh - 80px);
+    flex: 1;
     overflow-y: auto;
     padding: 12px;
 }
 .message-content {
     font-size: 14pt;
+}
+
+.mobile-person-card {
+    cursor: pointer;
+    margin: 4px;
+}
+
+.mobile-person-card-content {
+    width: 120px;
+    height: 160px;
+    padding: 0px !important;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-person-avatar {
+    flex: 1;
+    width: 120px;
+    height: 120px;
+    background-color: grey;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;   
+}
+
+.mobile-card-image {
+    width: 120px;
+    height: 120px;   
 }

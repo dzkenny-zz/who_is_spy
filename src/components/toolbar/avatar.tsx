@@ -6,7 +6,7 @@ import Avatar from '../../components/avatar';
 import './styles.css';
 import { Avatars } from '../../models/avatar';
 import { updateAvatar } from '../../actions/app';
-
+import { isMobile } from 'react-device-detect';
 
 const AvatarComponent = observer(() => {
     const stores = useStores();
@@ -39,12 +39,12 @@ const AvatarComponent = observer(() => {
             <Dialog open={showDialog}>
                 <DialogTitle>選擇頭像</DialogTitle>
                 <DialogContent>
-                    <div className="avatars-selection">
+                    <div className={isMobile ? "mobile-avatars-selection" : "avatars-selection"}>
                         {
                             Avatars.map((a, index) => (
                                 <div
                                     key={`avatar-${index}`}
-                                    className={`avatar-container ${a.id === avatar ? 'selected-avatar' : 'not-selected-avatar'}`}
+                                    className={`avatar-container ${a.id === avatar ? 'selected-avatar' : 'not-selected-avatar'} ${isMobile ? 'mobile-avatar' : ''}`}
                                     onClick={() => onAvatarChange(a.id)}
                                 >
 

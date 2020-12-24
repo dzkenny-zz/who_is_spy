@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useStores } from '../../stores';
 import { updateUsername } from '../../actions/app';
 import './styles.css';
+import { isMobile } from 'react-device-detect';
 
 const NameComponent = observer(() => {
     const stores = useStores();
@@ -33,7 +34,10 @@ const NameComponent = observer(() => {
 
     return (
         <>
-            <div className="name" onClick={onOpenNameDialog}>
+            <div
+                className={isMobile ? "mobile-name" : "name"}
+                onClick={onOpenNameDialog}
+            >
                 {user.username}
                 <EditIcon className="name-edit-icon" />
             </div>

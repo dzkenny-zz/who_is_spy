@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background:lightskyblue;
+    overflow-y: hidden;
 }
 
 .card {
@@ -64,4 +65,11 @@
 .setting-actions {
     display: inline-flex;
     align-items: flex-end;
+}
+
+.mobile-waiting-content {
+    display: flex;
+    margin: 8px;
+    border: 1px solid grey;
+    border-radius: 8px;   
 }

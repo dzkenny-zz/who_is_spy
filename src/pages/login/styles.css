@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background:lightskyblue;
+    overflow-y: hidden;
 }
 
 .card {
@@ -30,4 +31,22 @@
 
 .footer {
     justify-content: flex-end;
+}
+
+.mobile-toolbar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.mobile-title {
+    font-size: 14pt;
+}
+
+.mobile-card {
+    width: calc(100% - 16px);
+}
+
+.mobile-logo {
+    width: 36px;   
 }

@@ -49,3 +49,33 @@
     flex-wrap: wrap;
     width: 560px
 }
+
+.mobile-title {
+    font-size: 14pt;
+    flex: 1;
+}
+
+.mobile-logo {
+    width: 36px;
+}
+
+.mobile-toolbar {
+    margin: 8px;
+}
+
+.mobile-name {
+    font-size: 14pt;
+    margin-left: 8px;
+}
+
+.mobile-avatars-selection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%
+}
+
+.mobile-avatar {
+    margin: 4px;
+    width: 56px;
+    height: 56px;
+}

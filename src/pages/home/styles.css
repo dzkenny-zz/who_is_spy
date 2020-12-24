@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background:lightskyblue;
+    overflow-y: hidden;
 }
 
 .card {
@@ -54,4 +55,31 @@
 
 .button-text {
     margin-top: 24px;
+}
+
+.mobile-card {
+    width: calc(100% - 16px);
+}
+
+.mobile-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+.mobile-button-container {
+    flex: 1;
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    margin: 8px 8px;
+    cursor: pointer;   
+}
+
+.mobile-button-img {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
 }

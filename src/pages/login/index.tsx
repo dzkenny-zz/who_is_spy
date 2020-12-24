@@ -5,8 +5,9 @@ import { useHistory } from 'react-router';
 import { useStores } from '../../stores';
 import { saveUsername } from '../../actions/app';
 import { ActionState } from '../../models/common';
-const SpyImg = require('../../assets/images/spy.png').default;
+import { isMobile } from 'react-device-detect';
 
+const SpyImg = require('../../assets/images/spy.png').default;
 
 const LoginPage = () => {
     const stores = useStores();
@@ -24,28 +25,55 @@ const LoginPage = () => {
 
     const disabled = stores.appStore.loginState === ActionState.IN_PROGRESS;
 
-    return (
-        <div className="page">
-            <Card className="card">
-                <CardContent>
-                    <div className="toolbar">
-                    <Typography className="title" gutterBottom variant="h5" component="h2">歡迎遊玩 "誰是臥底"</Typography>
-                        <img src={SpyImg} className="logo" />
-                    </div>
-                    <TextField
-                        fullWidth
-                        label="用戶名稱"
-                        value={username}
-                        disabled={disabled}
-                        onChange={(e) => handleUsernameChange(e)}
-                    />
-                </CardContent>
-                <CardActions className="footer">
-                    <Button disabled={disabled} size="small" color="primary" onClick={onSave}>確認</Button>
-                </CardActions>
-            </Card>
-        </div>
-    )
+    if (isMobile) {
+        return (
+            <div className="page">
+                <Card className="mobile-card">
+                    <CardContent>
+                        <div className="mobile-toolbar">
+                            <img src={SpyImg} className="mobile-logo" />
+                            <div className="mobile-title">歡迎遊玩 "誰是臥底"</div>
+                        </div>
+                        <TextField
+                            fullWidth
+                            label="用戶名稱"
+                            value={username}
+                            disabled={disabled}
+                            onChange={(e) => handleUsernameChange(e)}
+                        />
+                    </CardContent>
+                    <CardActions className="footer">
+                        <Button disabled={disabled} size="small" color="primary" onClick={onSave}>確認</Button>
+                    </CardActions>
+                </Card>
+            </div>
+        );
+    } else {
+        return (
+            <div className="page">
+                <Card className="card">
+                    <CardContent>
+                        <div className="toolbar">
+                            <img src={SpyImg} className="logo" />
+                            <Typography className="title" gutterBottom variant="h5" component="h2">歡迎遊玩 "誰是臥底"</Typography>
+                        </div>
+                        <TextField
+                            fullWidth
+                            label="用戶名稱"
+                            value={username}
+                            disabled={disabled}
+                            onChange={(e) => handleUsernameChange(e)}
+                        />
+                    </CardContent>
+                    <CardActions className="footer">
+                        <Button disabled={disabled} size="small" color="primary" onClick={onSave}>確認</Button>
+                    </CardActions>
+                </Card>
+            </div>
+        );
+    }
+
+
 }
 
 export default LoginPage;

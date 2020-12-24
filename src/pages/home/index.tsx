@@ -6,6 +6,7 @@ import { useStores } from '../../stores';
 import { useHistory } from 'react-router';
 import { createGameRoom, joinGameRoom } from '../../actions/game';
 import ToolbarComponent from '../../components/toolbar';
+import { isMobile } from 'react-device-detect';
 
 const RoomImg = require('../../assets/images/room.png').default;
 const JoinImg = require('../../assets/images/join.png').default;
@@ -40,17 +41,29 @@ const HomePage = observer(() => {
 
     return (
         <div className="page">
-            <Card className="card">
+            <Card className={isMobile ? "mobile-card" : "card"}>
                 <CardContent>
-                    <ToolbarComponent title="歡迎遊玩誰是臥底" />
-                    <div className="content">
-                        <div className="button-container" onClick={onCreateRoom}>
-                            <img src={RoomImg} className="button-img" />
-                            <Typography className="button-text" gutterBottom variant="h5" component="h2">創建房間</Typography>
+                    <ToolbarComponent title={isMobile ? "" : "歡迎遊玩誰是臥底"} />
+                    <div className={isMobile ? "mobile-content" : "content"}>
+                        <div
+                            className={isMobile ? "mobile-button-container" : "button-container"}
+                            onClick={onCreateRoom}
+                        >
+                            <img
+                                src={RoomImg}
+                                className={isMobile ? "mobile-button-img" : "button-img"}
+                            />
+                            <Typography className="button-text" variant="h5" component="h2">創建房間</Typography>
                         </div>
-                        <div className="button-container" onClick={onShowJoinDialog}>
-                            <img src={JoinImg} className="button-img" />
-                            <Typography className="button-text" gutterBottom variant="h5" component="h2">參與房間</Typography>
+                        <div
+                            className={isMobile ? "mobile-button-container" : "button-container"}
+                            onClick={onShowJoinDialog}
+                        >
+                            <img
+                                src={JoinImg}
+                                className={isMobile ? "mobile-button-img" : "button-img"}
+                            />
+                            <Typography className="button-text" variant="h5" component="h2">參與房間</Typography>
                         </div>
                     </div>
                 </CardContent>

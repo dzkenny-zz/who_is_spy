@@ -10,8 +10,7 @@ import * as _ from 'lodash';
 import { Player } from '../../models/player';
 import AdminIcon from '@material-ui/icons/Star';
 import { Avatars } from '../../models/avatar';
-
-const SpyImg = require('../../assets/images/spy.png').default;
+import { isMobile } from 'react-device-detect';
 
 const GameBoardComponent = observer(() => {
     const stores = useStores();
@@ -28,7 +27,7 @@ const GameBoardComponent = observer(() => {
         if (!isHost) {
             return;
         }
-        
+
         if (player.status === 'dead' || (!setting.isRandom && player.identify === 'host')) {
             return;
         }
@@ -66,23 +65,31 @@ const GameBoardComponent = observer(() => {
             const SelectedImage = require(`../../assets/images/cards/${selectedAvatar?.card}`).default;
             return (
                 <img
-                    className="card-image"
+                    className={isMobile ? "mobile-card-image" : "card-image"}
                     src={SelectedImage}
                 />
             )
-        } catch(err) {
+        } catch (err) {
             return defaultImage;
         }
-        
+
     }
 
     return (
         <div className="gaming-card-content">
             {
                 players.map(player => (
-                    <Card key={`card-${player.id}`} className="person-card" onClick={() => onSelectPlayer(player)}>
-                        <CardContent className="person-card-content">
-                            <div className="person-avatar">
+                    <Card
+                        key={`card-${player.id}`}
+                        className={isMobile ? "mobile-person-card" : "person-card"}
+                        onClick={() => onSelectPlayer(player)}
+                    >
+                        <CardContent
+                            className={isMobile ? "mobile-person-card-content" : "person-card-content"}
+                        >
+                            <div
+                                className={isMobile ? "mobile-person-avatar" : "person-avatar"}
+                            >
                                 {
                                     player.status === 'dead' || (!setting.isRandom && player.id === host) ?
                                         (
@@ -101,10 +108,10 @@ const GameBoardComponent = observer(() => {
                                 }
                                 {getImage(player.avatar)}
                             </div>
-                            <Typography gutterBottom variant="body1" component="h2">
+                            <Typography variant="body1" component="h2">
                                 {player.username}
                             </Typography>
-                            <Typography gutterBottom variant="body2" component="h2">
+                            <Typography variant="body2" component="h2">
                                 {player.status === 'alive' ? '生存' : '陣亡'}
                             </Typography>
                         </CardContent>
