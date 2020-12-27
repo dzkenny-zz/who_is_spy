@@ -35,7 +35,6 @@
     margin-top: 24px;
     border: 1px solid grey;
     border-radius: 8px;
-    max-height: (100vh - 164px);
 }
 
 .room-content-container {
@@ -74,6 +73,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    max-height: (100vh - 164px) !important;
 }
 
 .person-card {
@@ -131,6 +131,7 @@
     display: inline-flex;
     flex-direction: column;
     overflow-y: hidden;
+    max-height: (100vh - 164px) !important;
 }
 
 .info-section {
